@@ -8,6 +8,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,9 +26,6 @@ import { SignupComponent } from './signup/signup.component';
 import { CreateJobComponent } from './create-job/create-job.component';
 import { UpdateJobComponent } from './update-job/update-job.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { JobSkillsService } from './services/job-skills/job-skills.service';
-// import { JobSkillsModel } from './models/job-skills.model';
-
 
 @NgModule({
   declarations: [
@@ -43,9 +42,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignupComponent,
     CreateJobComponent,
     UpdateJobComponent,
-    // JobSkillsService,
-    // JobSkillsModel
-    
   ],
   imports: [
     FormsModule,
@@ -56,6 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatSelectModule,
     MatSliderModule,
+    MatRadioModule,
+    MatCheckboxModule,
 
     BrowserModule,
     AppRoutingModule,
