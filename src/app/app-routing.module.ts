@@ -5,6 +5,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { JobDescriptionComponent } from './job-description/job-description.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { UpdateJobComponent } from './update-job/update-job.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 const routes: Routes = [
   {path: '',                redirectTo: '/', pathMatch: 'full' },
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path: 'signup',          component: SignupComponent},
   {path: 'login',           component: LoginComponent},
   {path: 'create-job',      component: CreateJobComponent},
+  {path: 'update-job',      component: UpdateJobComponent},
+  {path: 'update-user',      component: UpdateUserComponent},
   {path: 'job-description', component: JobDescriptionComponent},
   {path: '**', redirectTo: ''}
 ];
