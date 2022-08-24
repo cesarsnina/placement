@@ -2,8 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { concat, Observable } from 'rxjs';
 import { JobsModel } from '../models/jobs.model';
-const getJobs = 'http://localhost:3005/jobs';
-const usersURL = 'http://localhost:3005/users';
+import { environment } from 'src/environments/environment';
+
+const getJobs = environment.baseUrl + "/jobs";
+const usersURL = environment.baseUrl + "/users";
+// const getJobs = 'http://localhost:3005/jobs';
+// const usersURL = 'http://localhost:3005/users';
 @Injectable({
   providedIn: 'root',
 })
