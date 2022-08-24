@@ -6,7 +6,6 @@ import { environment } from 'src/environments/environment';
 
 const getJobs = environment.baseUrl + "/jobs";
 const usersURL = environment.baseUrl + "/users";
-
 @Injectable({
   providedIn: 'root',
 })
