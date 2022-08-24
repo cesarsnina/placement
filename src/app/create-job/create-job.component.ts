@@ -15,11 +15,6 @@ import { JobSkillsModel} from '../models/job-skills.model'
 import { SkillsModel} from '../models/skills.model'
 import { UsersModel } from '../models/users.model';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-create-job',
   templateUrl: './create-job.component.html',
@@ -30,11 +25,6 @@ export class CreateJobComponent implements OnInit {
   @Input() users?: UsersModel[];
   @Input() jobSkill?: JobSkillsModel[];
   @Input() skills?: SkillsModel[];
-
-  skillsList: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-  ];
 
   signUpForm = this.formBuilder.group({
     company: ['', Validators.required],
@@ -79,10 +69,11 @@ export class CreateJobComponent implements OnInit {
   }
 
   addNewJob(job: JobsModel): void {
-      console.log(job)
       this.jobsService.addJob(job).subscribe((response: JobsModel) => {
-        console.log("Jobs Model", response);
       });
+      setTimeout(() => {
+        this.route.navigate(['/']);
+      }, 10)
   }
 
   ngOnInit(): void {
@@ -94,7 +85,7 @@ export class CreateJobComponent implements OnInit {
     this.jobSkillsService.getAll().subscribe({
       next: (data) => {
         this.jobSkill = data;
-        // console.log(this.jobSkill)
+        console.log(this.jobSkill)
       },
       error: (e) => console.error(e)
     });
@@ -109,15 +100,3 @@ export class CreateJobComponent implements OnInit {
       });
   }
 }
-
-// const newSkills = await Skill.findAll({raw: true});
-    // for (let i = 0; i < newSkills.length; i++) { 
-    //   if (request.body.skills.includes(newSkills[i].name)) {
-    //     const createSkill = await JobSkill.create({
-    //       JobId: request.body.id,
-    //       SkillId: newSkills[i].id
-    //     });
-    //     await createSkill.save()
-    //     console.log("newJob.id", newJob.id, createSkill)
-    //   }
-    // }

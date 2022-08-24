@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SkillsModel } from '../models/skills.model';
-const baseUrl = 'http://localhost:3005/skills';
+import { environment } from 'src/environments/environment';
+
+const getSkillUrl = environment.baseUrl + "/skills";
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +12,6 @@ const baseUrl = 'http://localhost:3005/skills';
 export class SkillsService {
     constructor(private http: HttpClient) { }
   getAll(): Observable<SkillsModel[]> {
-    return this.http.get<SkillsModel[]>(baseUrl);
+    return this.http.get<SkillsModel[]>(getSkillUrl);
   }
 }

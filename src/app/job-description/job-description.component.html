@@ -18,4 +18,9 @@
     <span >{{job.level}}</span>
     <span *ngFor="let skills of job.Skills">{{skills.name}}</span>
   </div>
+
+  <div class="editjob">
+    <span class='role' (click) ="navigateToJob()">Edit this job</span>
+
+  </div>
 </div>

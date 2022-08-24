@@ -6,11 +6,9 @@
   box-shadow: 3px 6px 20px -2px #9bc4c4;
   border-left: 5px solid #5ca5a5;
   border-radius: 6px;
-  /* height: 550px; */
   margin: 20px auto 0;
   margin-top: 100px;
   width: 350px;
-  /* animation: shimmy 2s ; */
 }
 @keyframes shimmy {
     0% {

@@ -17,6 +17,11 @@ export class JobDescriptionComponent implements AfterViewInit, OnInit {
   constructor(private route:Router, private usersService: UsersService, private jobsService: JobsService) {}
 
 
+  navigateToJob() {
+    this.jobsService.currentJobId = this.job.id;
+    this.route.navigate(['/update-job']);
+  }
+
   retrieveUsers(): void {
     this.jobsService.getAll().subscribe({
       next: (data) => {

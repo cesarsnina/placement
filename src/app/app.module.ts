@@ -16,7 +16,6 @@ import { AppComponent } from './app.component';
 import { BannerComponent } from './banner/banner.component';
 import { JobCardComponent } from './job-card/job-card.component';
 import { InfoComponent } from './info/info.component';
-import { TestComponent } from './test/test.component';
 import { FilterComponent } from './filter/filter.component';
 import { FilterListComponent } from './filter/filter-list.component';
 import { JobDescriptionComponent } from './job-description/job-description.component';
@@ -26,6 +25,7 @@ import { SignupComponent } from './signup/signup.component';
 import { CreateJobComponent } from './create-job/create-job.component';
 import { UpdateJobComponent } from './update-job/update-job.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BannerComponent,
     JobCardComponent,
     InfoComponent,
-    TestComponent,
     FilterComponent,
     FilterListComponent,
     JobDescriptionComponent,
@@ -42,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignupComponent,
     CreateJobComponent,
     UpdateJobComponent,
+    UpdateUserComponent,
   ],
   imports: [
     FormsModule,

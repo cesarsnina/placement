@@ -16,7 +16,9 @@ export class InfoComponent implements OnInit {
 
   navigateToJob() {
     this.jobsService.currentJobId = this.item.id;
-    this.route.navigate(['/job-description']);
+    setTimeout(() => {
+      this.route.navigate(['/job-description']);
+    }, 1000)
   }
 
   ngOnInit(): void {}

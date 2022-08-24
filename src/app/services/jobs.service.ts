@@ -6,8 +6,6 @@ import { environment } from 'src/environments/environment';
 
 const getJobs = environment.baseUrl + "/jobs";
 const usersURL = environment.baseUrl + "/users";
-// const getJobs = 'http://localhost:3005/jobs';
-// const usersURL = 'http://localhost:3005/users';
 @Injectable({
   providedIn: 'root',
 })
@@ -32,5 +30,12 @@ export class JobsService {
     return this.http.post<JobsModel>(addJobURL, job);
   }
 
-
+  // router.put('/users/:userId/jobs/:jobId', jobsController.editJob)
+  editJob(job: JobsModel): Observable<JobsModel> {
+    const userId = (job.UserId).toString();
+    const jobId  = (job.id).toString();
+    // const action = "update-job";
+    const addJobURL = usersURL.concat("/",userId,"/", "jobs" , "/", jobId);
+    return this.http.put<JobsModel>(addJobURL, job);
+  }
 }
