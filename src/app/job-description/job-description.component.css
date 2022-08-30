@@ -1,4 +1,6 @@
 .job-descr-container  {
+    display: flex;
+    flex-direction: column;
     width: 70%;
     min-width: 300px;
     margin-top: 40px;
@@ -8,7 +10,7 @@
     right: 0;
   }
   
-  .job-card {
+  /* .job-card {
     display: flex;
     align-items: center;
     padding: 10px 15px;
@@ -18,8 +20,10 @@
     border-radius: 3px;
     border-left: 5px solid #5ca5a5;
     background-color: white;
+  } */
+  .avatar-app-info{
+    display: flex;
   }
-  
   .img-responsive {
     width: 88px;
     height: 88px;
@@ -28,9 +32,13 @@
   
   .job-info-skills {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-betwen;
     align-items: center;
     width: 90%;
+  }
+
+  .requirements p {
+    word-wrap: break-word;
   }
   
   .tech-skills {
@@ -54,6 +62,20 @@
     background-color: #5ca5a5;
     color: white;
   }
+
+  .editjob {
+    margin-top: 15px;
+  }
+
+  .role {
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .role:hover{
+    color: rgb(100, 97, 97);
+    font-size: larger;
+  }
+
   
   @media screen and (max-width: 1070px) {
     .job-descr-container  {

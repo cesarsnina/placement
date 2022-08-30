@@ -1,6 +1,6 @@
 <app-banner></app-banner>
 <div class="create-job-container">
-  <h4>Update Job</h4>
+  <h1>Update Job</h1>
   <form class="create-job" [formGroup]="updateJob" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <input
@@ -22,26 +22,32 @@
         placeholder="Paste logo url here"
       />
     </mat-form-field>
-    <mat-radio-group
+    <div class="label-mat-radio-btton">
+      <label id="newJob">Is this job new?</label>
+      <mat-radio-group
       id="new"
       formControlName="new"
       name="new"
       aria-label="Is this job new?"
-    >
-      <label id="newJob">Is this job new?</label>
-      <mat-radio-button type="radio" [value]="false">No</mat-radio-button>
-      <mat-radio-button type="radio" [value]="true">Yes</mat-radio-button>
-    </mat-radio-group>
-    <mat-radio-group
+      >
+        <mat-radio-button class="mat-radio-btton" type="radio" [value]="false">No</mat-radio-button>
+        <mat-radio-button class="mat-radio-btton" type="radio" [value]="true">Yes</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="label-mat-radio-btton">
+      <label id="featuredJob">Is this job featured?</label>
+      <mat-radio-group
       id="featured"
       formControlName="featured"
       name="featured"
       aria-label="Is this job new?"
-    >
-      <label id="featuredJob">Is this job featured?</label>
-      <mat-radio-button type="radio" [value]="false">No</mat-radio-button>
-      <mat-radio-button type="radio" [value]="true">Yes</mat-radio-button>
-    </mat-radio-group>
+      >
+        <mat-radio-button class="mat-radio-btton" type="radio" [value]="false">No</mat-radio-button>
+        <mat-radio-button class="mat-radio-btton" type="radio" [value]="true">Yes</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    
     <mat-form-field>
       <input
         matInput
@@ -114,6 +120,6 @@
       </button>
 
     </div>
-    <button type="submit">Update Job</button>
+    <button class="btn-submit" type="submit">Update Job</button>
   </form>
 </div>

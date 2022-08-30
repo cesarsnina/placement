@@ -1,9 +1,10 @@
+<app-banner></app-banner>
 <div class="job-descr-container">
-  <app-banner></app-banner>
-  <div class="avatar">
+  <div class="avatar-app-info">
     <img class="img-responsive" src={{job.logo}} alt={{job.company}} title={{job.company}}>
+    <app-info [item]="job"></app-info>
   </div>
-  <app-info [item]="job"></app-info>
+  
   <div class="requirements">
     <h3>Requirements</h3>
     <p class="">
