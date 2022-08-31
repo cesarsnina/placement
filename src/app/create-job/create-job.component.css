@@ -1,4 +1,6 @@
-
+.create-job-container > h1{
+  text-align: center;
+}
 .create-job {
   display: flex;
   flex-direction: column;
