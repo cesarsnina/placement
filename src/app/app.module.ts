@@ -26,6 +26,7 @@ import { CreateJobComponent } from './create-job/create-job.component';
 import { UpdateJobComponent } from './update-job/update-job.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     CreateJobComponent,
     UpdateJobComponent,
     UpdateUserComponent,
+    NavbarComponent,
   ],
   imports: [
     FormsModule,

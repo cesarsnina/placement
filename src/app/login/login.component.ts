@@ -22,28 +22,16 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const user = this.logInForm.value;
     this.logUser(user);
-    // if (this.users) {
-    //   for(let i = 0; i < this.users.length; i++) {
-    //     if(this.users[i].email == user.email) {
-    //       console.log(user.email, this.users[i].email, "exist");
-    //       if (this.users[i].password == user.password) {
-    //         this.route.navigate(['/home']);
-    //         break;
-    //       } else {
-    //         console.log("Wrong password");
-    //         break;
-    //       }
-    //     }
-    //     console.log("This account doesn't exist. Pelase sign up");
-    //       this.route.navigate(['/signup']);
-    //   }
-    // }
   }
 
   logUser(user: UsersModel[]): void {
-    this.usersService.logUser(user).subscribe((response: UsersModel[]) => {
-      console.log('Login: ', response);
+    this.usersService.logUser(user).subscribe({
+      next: (data) => {
+        console.log("response", data);
+      },
+      error: (e) => console.error(e),
     });
+    
   }
 
   retrieveUsers(): void {
