@@ -53,8 +53,9 @@ export class JobDescriptionComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.jobId = this.jobsService.currentJobId;
+    // this.stateService.state.currentJob.jobId = this.jobId;
     if (this.stateService.state.currentUser.isLoggedIn) {
-      if (this.stateService.state.currentUser.userId == this.job.UserId) {
+      if (this.stateService.state.currentUser.userId != 0) {
         this.jobOwner = "Edit this job";
       } else {
         this.jobOwner = "Go back";
