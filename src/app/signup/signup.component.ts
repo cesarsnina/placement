@@ -3,6 +3,20 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersModel } from '../models/users.model';
 import { UsersService } from '../services/users.service';
+import { StateService } from '../services/state.service';
+// import { HttpErrorResponse } from '@angular/common/http';
+
+export interface user {
+  id: Number;
+  firstName: String;
+  lastName: String;
+  email: String;
+  password: String;
+  image: String;
+  resume: String;
+  bio: String;
+  experience: Number;
+}
 
 @Component({
   selector: 'app-signup',
@@ -20,12 +34,16 @@ export class SignupComponent implements OnInit {
     repeatPassword: new FormControl(''),
   });
 
-  constructor(private usersService: UsersService, private route: Router) {}
+  response: user;
+
+  constructor(
+    private usersService: UsersService,
+    private stateService: StateService,
+    private route: Router
+  ) {}
 
   onSubmit() {
     const user = this.signUpForm.value;
-    // verify that user doens't exist and password is repeated correctly
-
     var repeatPassword = true;
     if (user.password != user.repeatPassword) {
       repeatPassword = !repeatPassword;
@@ -37,40 +55,43 @@ export class SignupComponent implements OnInit {
     } else if (repeatPassword) {
       this.addUser(user);
     }
-
-    // if (this.users) {
-    //   for(let i = 0; i < this.users.length; i++) {
-    //     if(this.users[i].email == user.email) {
-    //       newuser = !newuser;
-    //       console.log(user.email, "exist.", "Please login.");
-    //       this.route.navigate(['/login']);
-    //       break;
-    //     } else
-    //     if (user.password != user.repeatPassword) {
-    //       console.log("Repeated password don't match", user.password, user.repeatPassword);
-    //       break;
-    //     }
-    //   }
-    // }
-
   }
 
   retrieveUsers(): void {
     this.usersService.getAll().subscribe({
       next: (data) => {
         this.users = data;
+        const lastIndex = this.users?.length - 1;
+        this.stateService.state = {
+          currentUser: {
+            firstName: this.users[lastIndex].firstName,
+            lastName: this.users[lastIndex].lastName,
+            email: this.users[lastIndex].email,
+            userId: this.users[lastIndex].id,
+            isLoggedIn: true,
+          },
+          currentJob: {
+            jobId: 0,
+          },
+        };
       },
       error: (e) => console.error(e),
     });
   }
 
   addUser(user: UsersModel[]): void {
-    this.usersService.addUser(user).subscribe((response: UsersModel[]) => {
-      console.log(response);
+    this.usersService.addUser(user).subscribe({
+      next: (response) => {
+        this.retrieveUsers();
+        this.route.navigate(['/']);
+      },
+      error: (error) => {
+        if (error.error == 'Email already exist') {
+          this.route.navigate(['/login']);
+        }
+      },
     });
   }
-
   ngOnInit(): void {
-    this.retrieveUsers();
   }
 }

@@ -8,6 +8,7 @@ import { SignupComponent } from './signup/signup.component';
 import { UpdateJobComponent } from './update-job/update-job.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 
+
 const routes: Routes = [
   {path: '',                redirectTo: '/', pathMatch: 'full' },
   {path: '',                component: HomePageComponent},
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'update-job',      component: UpdateJobComponent},
   {path: 'update-user',      component: UpdateUserComponent},
   {path: 'job-description', component: JobDescriptionComponent},
-  {path: '**', redirectTo: ''}
+  {path: '**', redirectTo: ''},
 ];
 
 @NgModule({
