@@ -1,4 +1,6 @@
-
+.create-job-container > h1{
+  text-align: center;
+}
 .create-job {
   display: flex;
   flex-direction: column;
@@ -6,10 +8,21 @@
   box-shadow: 3px 6px 20px -2px #9bc4c4;
   border-left: 5px solid #5ca5a5;
   border-radius: 6px;
-  margin: 20px auto 0;
-  margin-top: 100px;
-  width: 350px;
+  margin: 40px auto 0;
+  width: 30%;
+  padding: 10px 10px 30px 10px;
 }
+
+#newJob, #featuredJob {
+  margin-right: 8px;
+}
+.label-mat-radio-btton{
+  display: flex;
+}
+.mat-radio-btton {
+  margin-right: 8px;
+}
+
 @keyframes shimmy {
     0% {
       transform: scale(.1);    
@@ -127,6 +140,26 @@ box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #99
 button[type="submit"]:active {
 top:3px;
 box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d, 0px 5px 3px #999;
+}
+.btn {
+  font-weight: bold;
+}
+.btn-submit:hover{
+  background-color:#3cbaba;
+}
+
+
+@media screen and (max-width: 1070px){
+
+  .create-job-container{
+    margin: auto;
+    padding: 10px;
+  }
+  .create-job {
+  
+    width: 100%;
+    
+  }
 }
 
 
